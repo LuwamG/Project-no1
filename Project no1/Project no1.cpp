@@ -53,6 +53,13 @@ void inputUserName(string& user_name, int& accountNum) {
     if (user_name == "new") {
         cout << "To create a new account. Select your desired user name: ";
         cin >> user_name;
+        if (user_name.length() < 4) {
+            while (user_name.length() < 4) {
+                cout << "Please enter a valid user name (min 4 characters): ";
+                cin >> user_name;
+            }
+           
+        }
         cout << "This is your new account: " << user_name << endl;
         cout << "Your account number is: " << accountNum << endl;
     }
@@ -91,8 +98,8 @@ double calculateTransferFare(const string& country) {
 
 // Function to display results
 void displayResults(const string countries[], int count, double amount_transfer, int points) {
-    cout << setw(12) << left << "|  country" << "   |   " << setw(12) << right << " transfer_fare" << "| " << endl;
-    cout << "---------------------------------" << endl;
+    cout << setw(12) << left << "|  Country" << "   |   " << setw(12) << right << "Transfer Fare" << "| " << endl;
+    cout << "---------------------------------------" << endl;
 
     for (int i = 0; i < count; i++) {
         double transfer_fare = calculateTransferFare(countries[i]);
@@ -103,7 +110,8 @@ void displayResults(const string countries[], int count, double amount_transfer,
         }
 
         double total = amount_transfer + (transfer_fare * amount_transfer) - (amount_transfer * points / 1000);
-        cout << setw(12) << left << countries[i] << "   |   " << setw(12) << right << transfer_fare << "| " << endl;
-        cout << "The total amount for " << countries[i] << " is " << total << " $" << endl;
+        cout << setw(12) << left << countries[i] << "   |   " << setw(12) << right << fixed << setprecision(3) << transfer_fare << "| " << endl;
+        cout << "The total amount for sending to " << countries[i] << " is " << fixed << setprecision(2) << total << " $" << endl;
     }
 }
+
