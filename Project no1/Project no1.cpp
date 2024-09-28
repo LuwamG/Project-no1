@@ -36,7 +36,7 @@ int main() {
 
     cout << "How many times have you sent money before? ";
     cin >> times_sent;
-    points = times_sent * 2;
+    points = static_cast<double>(times_sent) * 2;
     cout << "You have collected " << points << " points." << endl;
 
     // Display results
@@ -79,13 +79,12 @@ void inputCountries(string countries[], int& count, const int max_countryNum) {
         count++;
     }
 }
-
 // Function to calculate transfer fare based on the country
 double calculateTransferFare(const string& country) {
     if (country == "Eritrea" || country == "Ethiopia" || country == "Sudan" || country == "Uganda") {
         return 0.05;
     }
-    else if (country == "Holand" || country == "Germany" || country == "England") {
+    else if (country == "Holland" || country == "Germany" || country == "England") {
         return 0.03;
     }
     else if (country == "Australia" || country == "China") {
@@ -98,9 +97,9 @@ double calculateTransferFare(const string& country) {
 
 // Function to display results
 void displayResults(const string countries[], int count, double amount_transfer, int points) {
+    // First loop to display countries and their transfer fares
     cout << setw(12) << left << "|  Country" << "   |   " << setw(12) << right << "Transfer Fare" << "| " << endl;
     cout << "---------------------------------------" << endl;
-
     for (int i = 0; i < count; i++) {
         double transfer_fare = calculateTransferFare(countries[i]);
 
@@ -109,9 +108,23 @@ void displayResults(const string countries[], int count, double amount_transfer,
             continue;
         }
 
-        double total = amount_transfer + (transfer_fare * amount_transfer) - (amount_transfer * points / 1000);
         cout << setw(12) << left << countries[i] << "   |   " << setw(12) << right << fixed << setprecision(3) << transfer_fare << "| " << endl;
+    }
+
+    cout << endl; // Add a newline for clarity
+    //Second loop to calculate total charges
+   for (int i = 0; i < count; i++) {
+        double transfer_fare = calculateTransferFare(countries[i]);
+
+        if (transfer_fare < 0) {
+            cout << "Sorry, we do not have the service for " << countries[i] << "." << endl;
+            continue;
+        }
+
+        double total = amount_transfer + (transfer_fare * amount_transfer) - (amount_transfer * points / 1000);
+        cout << setw(12) << left << countries[i] << "   |   " << setw(12) << right << fixed << setprecision(3) << total << "| " << endl;
         cout << "The total amount for sending to " << countries[i] << " is " << fixed << setprecision(2) << total << " $" << endl;
     }
 }
+
 
