@@ -101,7 +101,7 @@ void inputCountries(string countries[], int& count, const int max_countryNum) {
 }
 
 // Function to calculate transfer fare based on the country
-//add ne comment for testing the git command line.
+
 double calculateTransferFare(const string& country) {
     if (country == "Eritrea" || country == "Ethiopia" || country == "Sudan" || country == "Uganda") {
         return 0.05;
