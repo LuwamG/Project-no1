@@ -19,14 +19,12 @@ int main() {
     const int max_countryNum = 10;
     string countries[max_countryNum];
     string user_name;
-    int accountNum = rand();  // Random to create account number
+    srand(time(0));
+    int accountNum = rand()%100'000;  // Random to create account number
     int count = 0;
     double amount_transfer;
     int points;
     int times_sent;
-
-    // Random seed
-    srand(static_cast<unsigned int>(time(0)));
 
     // Input user information
     inputUserName(user_name, accountNum);
