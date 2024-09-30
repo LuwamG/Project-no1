@@ -20,7 +20,7 @@ int main() {
     string countries[max_countryNum];
     string user_name;
     srand(time(0));
-    int accountNum = rand()%10'000;  // Random to create account number
+    int accountNum = rand()%100'000;  // Random to create account number
     int count = 0;
     double amount_transfer;
     int points;
