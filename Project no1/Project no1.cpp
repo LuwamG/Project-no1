@@ -160,3 +160,4 @@ void displayTransactionHistory(string transactionCountries[], double transaction
             << "   |   " << setw(12) << right << fixed << setprecision(2) << transactionTotals[i] << "| " << endl;
     }
 }
+//checking if commits are working
