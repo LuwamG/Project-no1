@@ -101,6 +101,7 @@ void inputCountries(string countries[], int& count, const int max_countryNum) {
 }
 
 // Function to calculate transfer fare based on the country
+
 double calculateTransferFare(const string& country) {
     if (country == "Eritrea" || country == "Ethiopia" || country == "Sudan" || country == "Uganda") {
         return 0.05;
@@ -159,3 +160,4 @@ void displayTransactionHistory(string transactionCountries[], double transaction
             << "   |   " << setw(12) << right << fixed << setprecision(2) << transactionTotals[i] << "| " << endl;
     }
 }
+//checking if commits are working
