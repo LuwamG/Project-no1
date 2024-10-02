@@ -19,26 +19,16 @@ int main() {
     string countries[max_countryNum];
     string user_name;
     srand(static_cast<unsigned int>(time(0)));
-    int accountNum = rand() % 100000; // Random to create account number
+    int accountNum; // Declare account number without initialization
     int count = 0;
     double amount_transfer;
     int points;
     int times_sent;
 
-    cout << "Enter user name, type 'new' if you are a new user: ";
-    cin >> user_name;
+    // Call inputUserName function
+    inputUserName(user_name, accountNum);
 
-    if (user_name == "new") {
-        cout << "To create a new account, select your desired user name: ";
-        cin >> user_name;
-        while (user_name.length() < 4) {
-            cout << "Please enter a valid user name (min 4 characters): ";
-            cin >> user_name;
-        }
-        cout << "This is your new account: " << user_name << endl;
-        cout << "Your account number is: " << accountNum << endl;
-    }
-
+    // Proceed with country input
     inputCountries(countries, count, max_countryNum);
 
     if (count == 0) {
@@ -92,6 +82,27 @@ int main() {
     return 0;
 }
 
+// Function to input user name
+void inputUserName(string& user_name, int& accountNum) {
+    cout << "Enter user name, type 'new' if you are a new user: ";
+    cin >> user_name;
+
+    if (user_name == "new") {
+        cout << "To create a new account, select your desired user name: ";
+        cin >> user_name;
+        while (user_name.length() < 4) {
+            cout << "Please enter a valid user name (min 4 characters): ";
+            cin >> user_name;
+        }
+        accountNum = rand() % 100000; // Generate a random account number
+        cout << "This is your new account: " << user_name << endl;
+        cout << "Your account number is: " << accountNum << endl;
+    }
+    else {
+        cout << "Welcome back, " << user_name << "!" << endl;
+    }
+}
+
 // Function to input countries
 void inputCountries(string countries[], int& count, const int max_countryNum) {
     string country;
@@ -133,6 +144,6 @@ void displayTransactionHistory(string transactionCountries[], double transaction
         cout << setw(12) << left << transactionCountries[i]
             << "   |   " << setw(15) << right << fixed << setprecision(2) << transactionAmounts[i]
             << "   |   " << setw(12) << right << fixed << setprecision(3) << transactionFares[i]
-            << "   |   " << setw(12) << right << fixed << setprecision(2) << transactionTotals[i] <<" $" << "| " << endl;
+            << "   |   " << setw(12) << right << fixed << setprecision(2) << transactionTotals[i] << " $" << "| " << endl;
     }
- }
+}
