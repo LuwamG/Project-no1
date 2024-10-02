@@ -28,3 +28,7 @@ C++
 How to use code
 1. Compile using visual studio
 2. Run the code
+
+video link is below.
+
+https://drive.google.com/file/d/1JD_w89YEQ_E1Rd3Bm46zX2x_KTjpTpTO/view?usp=drive_link
