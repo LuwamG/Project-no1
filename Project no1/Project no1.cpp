@@ -76,8 +76,17 @@ int main() {
             << "   |   " << setw(12) << right << fixed << setprecision(2) << total << " $" << "| " << endl;
     }
 
-    // Display transaction history
-    displayTransactionHistory(transactionCountries, transactionAmounts, transactionFares, transactionTotals, transactionCount);
+    // Ask user if they want to see the transaction history
+    char viewHistory;
+    cout << "Would you like to view your transaction history? (y/n): ";
+    cin >> viewHistory;
+
+    if (viewHistory == 'y' || viewHistory == 'Y') {
+        displayTransactionHistory(transactionCountries, transactionAmounts, transactionFares, transactionTotals, transactionCount);
+    }
+    else {
+        cout << "Thank you for using our service!" << endl;
+    }
 
     return 0;
 }
@@ -97,8 +106,14 @@ void inputUserName(string& user_name, int& accountNum) {
         accountNum = rand() % 100000; // Generate a random account number
         cout << "This is your new account: " << user_name << endl;
         cout << "Your account number is: " << accountNum << endl;
+<<<<<<< HEAD
+    }
+    else {
+        cout << "Welcome " << user_name << "!" << endl;
+=======
     } else {
         cout << "Welcome back, " << user_name << "!" << endl;
+>>>>>>> b2b03704eb178f539295b5d6ca4f7e5be9505e2f
     }
 }
 
