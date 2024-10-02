@@ -97,8 +97,7 @@ void inputUserName(string& user_name, int& accountNum) {
         accountNum = rand() % 100000; // Generate a random account number
         cout << "This is your new account: " << user_name << endl;
         cout << "Your account number is: " << accountNum << endl;
-    }
-    else {
+    } else {
         cout << "Welcome back, " << user_name << "!" << endl;
     }
 }
@@ -144,6 +143,6 @@ void displayTransactionHistory(string transactionCountries[], double transaction
         cout << setw(12) << left << transactionCountries[i]
             << "   |   " << setw(15) << right << fixed << setprecision(2) << transactionAmounts[i]
             << "   |   " << setw(12) << right << fixed << setprecision(3) << transactionFares[i]
-            << "   |   " << setw(12) << right << fixed << setprecision(2) << transactionTotals[i] << " $" << "| " << endl;
+            << "   |   " << setw(12) << right << fixed << setprecision(2) << transactionTotals[i] <<" $" << "| " << endl;
     }
 }
