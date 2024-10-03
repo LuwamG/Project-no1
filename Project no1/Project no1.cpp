@@ -103,17 +103,12 @@ void inputUserName(string& user_name, int& accountNum) {
             cout << "Please enter a valid user name (min 4 characters): ";
             cin >> user_name;
         }
-        accountNum = rand() % 100000; // Generate a random account number
+        accountNum = rand() % 100'000; // Generate a random account number
         cout << "This is your new account: " << user_name << endl;
         cout << "Your account number is: " << accountNum << endl;
-<<<<<<< HEAD
     }
     else {
         cout << "Welcome " << user_name << "!" << endl;
-=======
-    } else {
-        cout << "Welcome back, " << user_name << "!" << endl;
->>>>>>> b2b03704eb178f539295b5d6ca4f7e5be9505e2f
     }
 }
 
